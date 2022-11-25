@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<VBox alignment="CENTER" prefHeight="423.0" prefWidth="670.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <Pane prefHeight="422.0" prefWidth="651.0">
+      <children>
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="431.0" layoutX="-21.0" layoutY="-26.0" stroke="BLACK" strokeType="INSIDE" width="670.0" />
+          <Button fx:id="Connect1" layoutY="1.0" onAction="#onConnect1ButtonClick" text="DB Connect" />
+         <Button fx:id="Connect2" layoutX="150.0" layoutY="2.0" onAction="#onConnect2ButtonClick" text="DB Disconnect" />
+
+          <Label fx:id="Connection" layoutX="100.0" layoutY="56.0" prefHeight="18.0" prefWidth="289.0" />
+         <SplitMenuButton fx:id="Entity" layoutY="74.0" mnemonicParsing="false" text="Entity">
+           <items>
+             <MenuItem fx:id="pegawai" mnemonicParsing="false" text="Pegawai" />
+             <MenuItem fx:id="pelanggan" mnemonicParsing="false" text="Pelanggan" />
+               <MenuItem fx:id="Pesanan" mnemonicParsing="false" text="Pesanan" />
+               <MenuItem fx:id="Pembayaran" mnemonicParsing="false" text="Pembayaran" />
+               <MenuItem fx:id="MesinCuci" mnemonicParsing="false" text="Mesin Cuci" />
+           </items>
+         </SplitMenuButton>
+      </children>
+   </Pane>
+</VBox>
