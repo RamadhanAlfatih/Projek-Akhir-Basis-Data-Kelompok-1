@@ -6,69 +6,75 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="423.0" prefWidth="670.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.SecondController">
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
+
+<HBox style="-fx-alignment: center;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.SecondController">
    <children>
-      <Pane prefHeight="422.0" prefWidth="651.0">
+      <VBox alignment="CENTER" prefHeight="423.0" prefWidth="670.0" spacing="20.0" style="-fx-alignment: center;">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9bcbc" height="455.0" layoutX="-25.0" layoutY="-26.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="682.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="455.0" layoutX="317.0" layoutY="-26.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="340.0" />
-            <Text layoutX="85.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laundry Badak">
-               <font>
-                  <Font name="Consolas Bold Italic" size="18.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="164.0" fitWidth="159.0" layoutX="70.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Images/washer.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="122.0" fitWidth="117.0" layoutX="429.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Images/icons8-male-user-96.png" />
-               </image>
-            </ImageView>
-            <PasswordField layoutX="451.0" layoutY="228.0" />
-            <TextField layoutX="451.0" layoutY="180.0" />
-            <Text layoutX="349.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Text layoutX="349.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Button layoutX="450.0" layoutY="282.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" text=" Login" textAlignment="CENTER">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button layoutX="112.0" layoutY="297.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" text="Kembali">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Text layoutX="411.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No Account?">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <Text fill="#d9bcbc" layoutX="491.0" layoutY="342.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Create one">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
+            <Pane prefHeight="422.0" prefWidth="651.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9bcbc" height="455.0" layoutX="-25.0" layoutY="-26.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="682.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="455.0" layoutX="317.0" layoutY="-26.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="340.0" />
+                  <Text layoutX="85.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laundry Badak">
+                     <font>
+                        <Font name="Consolas Bold Italic" size="18.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="164.0" fitWidth="159.0" layoutX="70.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/washer.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="122.0" fitWidth="117.0" layoutX="429.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/icons8-male-user-96.png" />
+                     </image>
+                  </ImageView>
+                  <PasswordField layoutX="451.0" layoutY="228.0" promptText="********" />
+                  <TextField layoutX="451.0" layoutY="180.0" promptText="wibuabiezzz99" />
+                  <Text layoutX="349.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="349.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="450.0" layoutY="282.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: D9BCBC;" text=" Login" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="112.0" layoutY="297.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: FFFF;" text="Kembali">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Text layoutX="411.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No Account?">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="491.0" layoutY="321.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" style="-fx-background-color: transparent;" text="Create one" textAlignment="CENTER" textFill="#bf7474" underline="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
          </children>
-      </Pane>
+      </VBox>
    </children>
-</VBox>
+</HBox>
