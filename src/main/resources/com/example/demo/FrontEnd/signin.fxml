@@ -42,7 +42,7 @@
       <TextField layoutX="61.0" layoutY="291.0" prefHeight="26.0" prefWidth="251.0" />
       <ImageView fitHeight="162.0" fitWidth="164.0" layoutX="445.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Images/icons8-male-user-96.png" />
+            <Image url="@../Images/icons8-male-user-96.png" />
          </image>
       </ImageView>
       <Button layoutX="139.0" layoutY="357.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Create">

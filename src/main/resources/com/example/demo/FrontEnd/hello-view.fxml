@@ -24,12 +24,12 @@
          <AnchorPane layoutX="314.0" layoutY="-18.0" prefHeight="423.0" prefWidth="332.0" style="-fx-background-color: FFFFFF;" />
          <ImageView fitHeight="164.0" fitWidth="159.0" layoutX="70.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@Images/washer.png" />
+               <Image url="@../Images/washer.png" />
             </image>
          </ImageView>
          <ImageView fitHeight="122.0" fitWidth="117.0" layoutX="429.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@Images/icons8-male-user-96.png" />
+               <Image url="@../Images/icons8-male-user-96.png" />
             </image>
          </ImageView>
          <Button layoutX="521.0" layoutY="259.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="91.0" text="Pelanggan" />

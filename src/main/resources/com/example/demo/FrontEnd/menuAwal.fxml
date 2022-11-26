@@ -13,7 +13,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9bcbc" height="455.0" stroke="TRANSPARENT" strokeType="INSIDE" width="682.0" />
       <ImageView fitHeight="164.0" fitWidth="159.0" layoutX="50.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Images/washer.png" />
+            <Image url="@../Images/washer.png" />
          </image>
       </ImageView>
       <Text layoutX="65.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laundry Badak">
