@@ -5,13 +5,14 @@ import javafx.fxml.FXML;
 import javax.swing.*;
 import java.io.IOException;
 
-public class signin_controller {
+public class SigninPegawai {
     @FXML
     private void clickLogin() throws IOException {
-        HelloApplication.setRoot("FrontEnd/tes");
+        HelloApplication.setRoot("BackEnd/loginPegawai");
     }
     @FXML
     private void clickCreate() throws IOException {
         JOptionPane.showMessageDialog(null, "Masih error");
     }
+
 }

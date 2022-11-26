@@ -4,43 +4,57 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="455.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.MenuAwal">
+<HBox style="-fx-alignment: center;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.MenuAwal">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9bcbc" height="455.0" stroke="TRANSPARENT" strokeType="INSIDE" width="682.0" />
-      <ImageView fitHeight="164.0" fitWidth="159.0" layoutX="50.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Images/washer.png" />
-         </image>
-      </ImageView>
-      <Text layoutX="65.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laundry Badak">
-         <font>
-            <Font name="Consolas Bold Italic" size="18.0" />
-         </font>
-      </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffffd7" height="423.0" layoutX="257.0" layoutY="16.0" stroke="TRANSPARENT" strokeType="INSIDE" width="410.0" />
-      <Button layoutX="289.0" layoutY="245.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="346.0" text="Histori laundry">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Button>
-      <Button layoutX="289.0" layoutY="78.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="346.0" text="Tambah laundry">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Button>
-      <Button layoutX="289.0" layoutY="166.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="346.0" text="Laundry yang sedang berjalan">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Button>
-      <Button layoutX="289.0" layoutY="328.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="346.0" text="Bayar laundry">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Button>
+      <VBox style="-fx-alignment: center;">
+         <children>
+            <AnchorPane prefHeight="422.0" prefWidth="651.0" style="-fx-background-color: D9BCBC;">
+               <children>
+                  <ImageView fitHeight="164.0" fitWidth="159.0" layoutX="50.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/washer.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="65.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laundry Badak">
+                     <font>
+                        <Font name="Consolas Bold Italic" size="18.0" />
+                     </font>
+                  </Text>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffffd7" height="413.0" layoutX="246.0" layoutY="4.0" stroke="TRANSPARENT" strokeType="INSIDE" width="394.0" />
+                  <Button fx:id="laundryHistori" layoutX="270.0" layoutY="236.0" mnemonicParsing="false" onAction="#clicklaundryHistori" prefHeight="30.0" prefWidth="346.0" style="-fx-background-color: D9BCBC;" text="Histori laundry">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="tambahLaundry" layoutX="270.0" layoutY="78.0" mnemonicParsing="false" onAction="#clicktambahLaundry" prefHeight="30.0" prefWidth="346.0" style="-fx-background-color: D9BCBC;" text="Tambah laundry">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="laundryJalan" layoutX="270.0" layoutY="159.0" mnemonicParsing="false" onAction="#clicklaundryJalan" prefHeight="30.0" prefWidth="346.0" style="-fx-background-color: D9BCBC;" text="Laundry yang sedang berjalan">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="laundryBayar" layoutX="270.0" layoutY="315.0" mnemonicParsing="false" onAction="#clicklaundryBayar" prefHeight="30.0" prefWidth="346.0" style="-fx-background-color: D9BCBC;" text="Bayar laundry">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Text layoutX="380.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rhinoceros">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
    </children>
-</AnchorPane>
+</HBox>

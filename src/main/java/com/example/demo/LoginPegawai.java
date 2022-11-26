@@ -1,17 +1,17 @@
 package com.example.demo;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SecondController{
-
+public class LoginPegawai {
     @FXML
     private Button kembali_button;
     @FXML
@@ -20,11 +20,11 @@ public class SecondController{
     }
     @FXML
     private void clickLogin() throws IOException {
-        HelloApplication.setRoot("FrontEnd/menuAwal");
+        HelloApplication.setRoot("BackEnd/menuPegawai");
     }
     @FXML
     private void clickSignin() throws IOException {
-        HelloApplication.setRoot("FrontEnd/signin");
+        HelloApplication.setRoot("BackEnd/signinPegawai");
     }
 //    @Override
 //    public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -32,12 +32,11 @@ public class SecondController{
 //            @Override
 //            public void handle(ActionEvent event) {
 //                try {
-//                    DBUtils.changeScene(event, "FrontEnd/hello_view.fxml", "Laundry Badak");
+//                    HelloApplication.setRoot("FrontEnd/hello-view.fxml");
 //                } catch (IOException e) {
 //                    throw new RuntimeException(e);
 //                }
 //            }
 //        });
 //    }
-
 }
