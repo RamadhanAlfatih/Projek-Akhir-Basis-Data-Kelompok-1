@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="455.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.signin_controller">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="455.0" stroke="TRANSPARENT" strokeType="INSIDE" width="688.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9bcbc" height="426.0" layoutX="15.0" layoutY="15.0" stroke="TRANSPARENT" strokeType="INSIDE" width="337.0" />
+      <Text fill="WHITE" layoutX="61.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Text>
+      <TextField layoutX="61.0" layoutY="75.0" prefHeight="26.0" prefWidth="251.0" />
+      <Text fill="WHITE" layoutX="61.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Text>
+      <TextField layoutX="61.0" layoutY="129.0" prefHeight="26.0" prefWidth="251.0" />
+      <Text fill="WHITE" layoutX="61.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Text>
+      <TextField layoutX="61.0" layoutY="183.0" prefHeight="26.0" prefWidth="251.0" />
+      <Text fill="WHITE" layoutX="61.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nama">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Text>
+      <TextField layoutX="61.0" layoutY="237.0" prefHeight="26.0" prefWidth="251.0" />
+      <Text fill="WHITE" layoutX="63.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No. Hp">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Text>
+      <TextField layoutX="61.0" layoutY="291.0" prefHeight="26.0" prefWidth="251.0" />
+      <ImageView fitHeight="162.0" fitWidth="164.0" layoutX="445.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../java/Images/icons8-male-user-96.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="139.0" layoutY="357.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Create">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Text layoutX="418.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#d9bcbc" layoutX="491.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log in" wrappingWidth="70.2943115234375">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
