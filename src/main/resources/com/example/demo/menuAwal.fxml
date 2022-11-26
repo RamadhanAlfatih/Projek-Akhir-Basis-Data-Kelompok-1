@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="455.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.MenuAwal">
+<AnchorPane prefHeight="455.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.MenuAwal">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9bcbc" height="455.0" stroke="TRANSPARENT" strokeType="INSIDE" width="682.0" />
       <ImageView fitHeight="164.0" fitWidth="159.0" layoutX="50.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../java/Images/washer.png" />
+            <Image url="@image/washer.png" />
          </image>
       </ImageView>
       <Text layoutX="65.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laundry Badak">
