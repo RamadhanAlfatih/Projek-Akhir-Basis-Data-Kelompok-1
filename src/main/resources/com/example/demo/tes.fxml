@@ -28,12 +28,12 @@
             </Text>
             <ImageView fitHeight="164.0" fitWidth="159.0" layoutX="70.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../java/Images/washer.png" />
+                  <Image url="@Images/washer.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="122.0" fitWidth="117.0" layoutX="429.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../java/Images/icons8-male-user-96.png" />
+                  <Image url="@Images/icons8-male-user-96.png" />
                </image>
             </ImageView>
             <PasswordField layoutX="451.0" layoutY="228.0" />
@@ -53,7 +53,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button layoutX="112.0" layoutY="297.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" text="Back">
+            <Button layoutX="112.0" layoutY="297.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" text="Kembali">
                <font>
                   <Font size="14.0" />
                </font>
