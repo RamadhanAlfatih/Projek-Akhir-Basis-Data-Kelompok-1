@@ -23,7 +23,7 @@
                     <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Data laundry mu sedang di proses" />
                         <Pane prefHeight="58.0" prefWidth="190.0" />
-                        <Button mnemonicParsing="false" text="Menu" />
+                        <Button fx:id="menu" mnemonicParsing="false" onAction="#clickMenu" text="Menu" />
                     </children>
                 </VBox>
             </children>
