@@ -4,20 +4,9 @@ import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-public class DataPelanggan {
-    @FXML
-    private void clickCari() throws IOException {
-    }
+public class IsiBeratLaundry {
     @FXML
     private void clickTambah() throws IOException {
-
-    }
-    @FXML
-    private void clickEdit() throws IOException {
-
-    }
-    @FXML
-    private void clickHapus() throws IOException {
     }
     @FXML
     private void clickKembali() throws IOException {

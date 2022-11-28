@@ -18,9 +18,9 @@ import java.util.ResourceBundle;
 
 public class HelloController{
     @FXML
-    private Button kePegawai;
+    private Button pegawai;
     @FXML
-    private Button kePelanggan;
+    private Button pelanggan;
     @FXML
     private void clickPegawai() throws IOException {
         HelloApplication.setRoot("BackEnd/loginPegawai");

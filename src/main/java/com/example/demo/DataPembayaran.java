@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-public class DataPelanggan {
+public class DataPembayaran {
     @FXML
     private void clickCari() throws IOException {
     }
