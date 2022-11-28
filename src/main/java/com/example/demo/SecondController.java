@@ -31,12 +31,21 @@ public class SecondController{
     }
     @FXML
     private void clickLogin() {
+        if (!username.getText().trim().isBlank() && !password.getText().trim().isBlank()){
+            validateLogin();
+        }else{
+            loginMessage.setText("Masukkan username dan password Anda!");
+        }
+    }
+    @FXML
+    private void enterPassword(){
         if (!username.getText().isBlank() && !password.getText().isBlank()){
             validateLogin();
         }else{
             loginMessage.setText("Masukkan username dan password Anda!");
         }
     }
+
     @FXML
     private void clickSignin() throws IOException {
         HelloApplication.setRoot("FrontEnd/signin");

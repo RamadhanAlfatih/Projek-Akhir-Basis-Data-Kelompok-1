@@ -1,4 +1,6 @@
 package com.example.demo;
+import javafx.scene.control.Alert;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -16,5 +18,17 @@ public class DatabaseConnection {
         }
 
         return databaseLink;
+    }
+    public void MyAlert(String type, String title, String content){
+        Alert alert;
+        if (type.equalsIgnoreCase("warning")){
+            alert = new Alert(Alert.AlertType.WARNING);
+        }else {
+            alert = new Alert(Alert.AlertType.INFORMATION);
+        }
+        alert.setTitle(title);
+        alert.setContentText(content);
+        alert.setHeaderText(null);
+        alert.showAndWait();
     }
 }
