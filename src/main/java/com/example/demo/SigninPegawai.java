@@ -42,22 +42,23 @@ public class SigninPegawai {
         String query = "insert into LoginDataPegawai values (?,?,?,?)";
         try {
             Statement statement = connectDB.createStatement();
+            Statement statement1 = connectDB.createStatement();
 //            ResultSet queryResult = statement.executeQuery(verifySignin);
             ResultSet queryResult = null;
             queryResult = statement.executeQuery(verifySignin);
 //            ResultSet queryResult1 = statement.executeQuery(verifyIdPegawai);
-//            ResultSet queryResult1 = null;
-//            queryResult1 = statement.executeQuery(verifyIdPegawai);
-            boolean validation = true;
+            ResultSet queryResult1 = null;
+            queryResult1 = statement1.executeQuery(verifyIdPegawai);
+            boolean validation = false;
 //
-//            while (queryResult1.next()){
-//                if (queryResult1.getInt(1)==1){
-//                    validation = true;
-//                }else {
-//                    connectNow.MyAlert("warning", "Peringatan","IdPegawai belum didaftarkan!");
-//                    validation = false;
-//                }
-//            }
+            while (queryResult1.next()){
+                if (queryResult1.getInt(1)==1){
+                    validation = true;
+                }else {
+                    connectNow.MyAlert("warning", "Peringatan","IdPegawai belum didaftarkan!");
+                    validation = false;
+                }
+            }
             while(queryResult.next()){
                 if (queryResult.getInt(1)==1){
                     connectNow.MyAlert("warning", "Peringatan","Username sudah dipakai!");
@@ -80,8 +81,8 @@ public class SigninPegawai {
             }
 
         }catch (Exception e){
-//            e.printStackTrace();
-            connectNow.MyAlert("warning", "Peringatan","IdPegawai belum didaftarkan!");
+            e.printStackTrace();
+//            connectNow.MyAlert("warning", "Peringatan","IdPegawai belum didaftarkan!");
         }
     }
 }

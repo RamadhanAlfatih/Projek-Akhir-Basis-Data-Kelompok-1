@@ -54,7 +54,7 @@ public class LoginPegawai {
         Connection connectDB = connectNow.getConnection();
 
 
-        String verifyLogin = "Select count(1) from LoginDataPelanggan Where Username = '"+username.getText()+"' and Password = '"+password.getText()+"'";
+        String verifyLogin = "Select count(1) from LoginDataPegawai Where Username = '"+username.getText().trim()+"' and Password = '"+password.getText().trim()+"'";
 
         try {
             Statement statement = connectDB.createStatement();
