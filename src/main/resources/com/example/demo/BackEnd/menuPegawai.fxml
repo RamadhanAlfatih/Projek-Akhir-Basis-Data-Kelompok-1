@@ -20,44 +20,49 @@
                         <Font name="System Bold" size="36.0" />
                      </font>
                   </Text>
-                  <Button fx:id="pegawai" layoutX="69.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickPegawai" prefHeight="51.0" prefWidth="176.0" text="Pegawai">
+                  <Button fx:id="pegawai" layoutX="31.0" layoutY="101.0" mnemonicParsing="false" onAction="#clickPegawai" prefHeight="40.0" prefWidth="162.0" text="Pegawai">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="pelanggan" layoutX="69.0" layoutY="201.0" mnemonicParsing="false" onAction="#clickPelanggan" prefHeight="51.0" prefWidth="176.0" text="Pelanggan">
+                  <Button fx:id="pelanggan" layoutX="31.0" layoutY="187.0" mnemonicParsing="false" onAction="#clickPelanggan" prefHeight="40.0" prefWidth="162.0" text="Pelanggan">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="laundry" layoutX="69.0" layoutY="272.0" mnemonicParsing="false" onAction="#clickLaundry" prefHeight="51.0" prefWidth="176.0" text="Laundry">
+                  <Button fx:id="laundry" layoutX="31.0" layoutY="274.0" mnemonicParsing="false" onAction="#clickLaundry" prefHeight="40.0" prefWidth="162.0" text="Laundry">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="400.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="464.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/washer.png" />
                      </image>
                   </ImageView>
-                  <Text fill="WHITE" layoutX="387.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stay Clean">
+                  <Text fill="WHITE" layoutX="451.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stay Clean">
                      <font>
                         <Font name="System Bold" size="36.0" />
                      </font>
                   </Text>
-                  <Text layoutX="381.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rhinoceros">
+                  <Text layoutX="445.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rhinoceros">
                      <font>
                         <Font name="System Bold" size="36.0" />
                      </font>
                   </Text>
-                  <Button fx:id="pembayaran" layoutX="69.0" layoutY="346.0" mnemonicParsing="false" onAction="#clickPembayaran" prefHeight="51.0" prefWidth="176.0" text="Pembayaran">
+                  <Button fx:id="pembayaran" layoutX="244.0" layoutY="274.0" mnemonicParsing="false" onAction="#clickPembayaran" prefHeight="40.0" prefWidth="162.0" text="Pembayaran">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="isiberat" layoutX="48.0" layoutY="51.0" mnemonicParsing="false" onAction="#clickIsiberat" prefHeight="51.0" prefWidth="217.0" text="Isi berat laundry">
+                  <Button fx:id="isiberat" layoutX="244.0" layoutY="101.0" mnemonicParsing="false" onAction="#clickIsiberat" prefHeight="40.0" prefWidth="162.0" text="Isi berat laundry">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="harga" layoutX="244.0" layoutY="187.0" mnemonicParsing="false" onAction="#clickHarga" prefHeight="40.0" prefWidth="162.0" text="Harga">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
                </children>

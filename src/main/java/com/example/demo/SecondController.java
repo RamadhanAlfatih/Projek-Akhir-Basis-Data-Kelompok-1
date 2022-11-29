@@ -66,7 +66,7 @@ public class SecondController{
                 if (queryResult.getInt(1)==1){
                     HelloApplication.setRoot("FrontEnd/menuAwal");
                 }else{
-                    loginMessage.setText("Username atau password salah!");
+                    connectNow.MyAlert("warning", "Warning", "Username atau password salah!");
                 }
             }
         }catch (Exception e){

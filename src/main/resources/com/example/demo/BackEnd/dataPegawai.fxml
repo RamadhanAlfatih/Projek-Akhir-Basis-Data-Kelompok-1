@@ -40,17 +40,17 @@
                   <TextField fx:id="jenisKelaminText" layoutX="364.0" layoutY="13.0" prefHeight="26.0" prefWidth="106.0" />
                   <TextField fx:id="namaText" layoutX="109.0" layoutY="47.0" prefHeight="26.0" prefWidth="361.0" />
                   <TextField fx:id="notelpText" layoutX="109.0" layoutY="80.0" prefHeight="26.0" prefWidth="362.0" />
-                  <Button fx:id="tambah" layoutX="505.0" layoutY="111.0" mnemonicParsing="false" onAction="#clickTambah" prefHeight="26.0" prefWidth="74.0" text="Tambah" />
-                  <Button fx:id="edit" layoutX="396.0" layoutY="163.0" mnemonicParsing="false" onAction="#clickEdit" prefHeight="26.0" prefWidth="74.0" text="Edit" />
-                  <Button fx:id="hapus" layoutX="505.0" layoutY="163.0" mnemonicParsing="false" onAction="#clickHapus" prefHeight="26.0" prefWidth="74.0" text="Hapus" />
-                  <Button fx:id="kembali" layoutX="505.0" layoutY="60.0" mnemonicParsing="false" onAction="#clickKembali" prefHeight="26.0" prefWidth="74.0" text="Kembali" />
+                  <Button fx:id="tambah" layoutX="505.0" layoutY="61.0" mnemonicParsing="false" onAction="#clickTambah" prefHeight="26.0" prefWidth="74.0" text="Tambah" />
+                  <Button fx:id="edit" layoutX="506.0" layoutY="163.0" mnemonicParsing="false" onAction="#clickEdit" prefHeight="26.0" prefWidth="74.0" text="Edit" />
+                  <Button fx:id="hapus" layoutX="505.0" layoutY="113.0" mnemonicParsing="false" onAction="#clickHapus" prefHeight="26.0" prefWidth="74.0" text="Hapus" />
+                  <Button fx:id="kembali" layoutX="505.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickKembali" prefHeight="26.0" prefWidth="74.0" text="Kembali" />
                   <TextField fx:id="alamatText" layoutX="109.0" layoutY="116.0" prefHeight="26.0" prefWidth="362.0" />
                   <Text layoutX="14.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No. Telp">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="cariText" layoutX="17.0" layoutY="163.0" prefHeight="26.0" prefWidth="302.0" promptText="Search" />
+                  <TextField fx:id="cariText" layoutX="17.0" layoutY="163.0" prefHeight="26.0" prefWidth="454.0" promptText="Search" />
                   <TableView fx:id="pegawaiTable" layoutX="17.0" layoutY="200.0" onMouseClicked="#clickTabel" prefHeight="194.0" prefWidth="566.0">
                     <columns>
                       <TableColumn fx:id="idPegawaiCol" prefWidth="75.0" text="Id Pegawai" />

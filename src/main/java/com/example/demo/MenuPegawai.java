@@ -25,4 +25,8 @@ public class MenuPegawai {
     private void clickIsiberat() throws IOException {
         HelloApplication.setRoot("BackEnd/isiBeratLaundry");
     }
+    @FXML
+    private void clickHarga() throws IOException {
+        HelloApplication.setRoot("BackEnd/dataHarga");
+    }
 }
