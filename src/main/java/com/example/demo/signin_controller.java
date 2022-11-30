@@ -19,6 +19,12 @@ public class signin_controller {
     @FXML
     private Label label1;
     @FXML
+    private RadioButton lakiRB;
+    @FXML
+    private RadioButton perempuanRB;
+    @FXML
+    private ToggleGroup jenisKelaminRBGroup;
+    @FXML
     private void clickLogin() throws IOException {
         HelloApplication.setRoot("FrontEnd/tes");
     }
@@ -37,11 +43,20 @@ public class signin_controller {
         Connection connectDB = connectNow.getConnection();
         String verifySignin = "Select count(1) from LoginDataPelanggan Where Username = '"+username.getText()+"'";
 //        String query = "insert into LoginDataPelanggan values ('"+username.getText().trim()+"', '"+password.getText().trim()+"', '"+nama.getText().trim()+"', '"+noHp.getText().trim()+"')";
+
         String query = "insert into LoginDataPelanggan values (?,?,?,?)";
+        String query1 = "Insert into Pelanggan (NoPelanggan, Username, Nama, NoTelp, JenisKelamin) values (?,?,?,?,?)";
+        //Generate random int value from 50 to 100
+        int min = 1000;
+        int max = 1000000;
+        int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
+        String randomGen = String.valueOf(random_int);
+//        String verifyNoPelanggan = "Select count(1) from Pelanggan Where Username = '"+randomGen+"'";
 
         try {
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(verifySignin);
+
 
 
             while(queryResult.next()){
@@ -56,14 +71,30 @@ public class signin_controller {
                     sqlStatement.setString(4,noHp.getText().trim());
                     sqlStatement.execute();
                     execute = sqlStatement.getGeneratedKeys();
-                    while (execute.next()){
+
+                    ResultSet execute1 = null;
+                    PreparedStatement sqlStatement1 = connectDB.prepareStatement(query1, Statement.RETURN_GENERATED_KEYS);
+                    sqlStatement1.setString(1,randomGen);
+                    sqlStatement1.setString(2,username.getText().trim());
+                    sqlStatement1.setString(3,nama.getText().trim());
+                    sqlStatement1.setString(4,noHp.getText().trim());
+                    String value;
+                    if (jenisKelaminRBGroup.getSelectedToggle().toString().contains("laki")) {
+                        value = "L";
+                    } else {
+                        value = "P";
+                    }
+                    sqlStatement1.setString(5,value);
+                    sqlStatement1.execute();
+                    execute1 = sqlStatement1.getGeneratedKeys();
+                    while (execute.next()&&execute1.next()){
                         connectNow.MyAlert("info", "Informasi","Data berhasil disimpan!");
                         HelloApplication.setRoot("FrontEnd/tes");
                     }
                 }
             }
         }catch (Exception e){
-            e.printStackTrace();
+            connectNow.MyAlert("warning", "Peringatan",String.valueOf(e));
         }
     }
 }

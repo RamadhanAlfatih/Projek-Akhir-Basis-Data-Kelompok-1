@@ -10,15 +10,13 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ResourceBundle;
-import java.sql.Connection;
-import java.sql.DriverManager;
 
 public class SecondController{
     @FXML
     private TextField username;
+
     @FXML
     private PasswordField password;
     @FXML
@@ -65,6 +63,16 @@ public class SecondController{
             while(queryResult.next()){
                 if (queryResult.getInt(1)==1){
                     HelloApplication.setRoot("FrontEnd/menuAwal");
+                    PreparedStatement deleteSt = connectDB.prepareStatement("Execute dbo.DeleteTempUser");
+                    deleteSt.execute();
+                    String tempQuery = "Execute dbo.GetTempUser '"+username.getText()+"'";
+                    PreparedStatement sqlStatement;
+                    try {
+                        sqlStatement = connectDB.prepareStatement(tempQuery);
+                            sqlStatement.execute();
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                 }else{
                     connectNow.MyAlert("warning", "Warning", "Username atau password salah!");
                 }

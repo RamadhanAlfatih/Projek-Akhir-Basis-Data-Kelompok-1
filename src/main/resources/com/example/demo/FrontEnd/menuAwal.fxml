@@ -27,17 +27,12 @@
                      </font>
                   </Text>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffffd7" height="413.0" layoutX="246.0" layoutY="4.0" stroke="TRANSPARENT" strokeType="INSIDE" width="394.0" />
-                  <Button fx:id="laundryHistori" layoutX="270.0" layoutY="236.0" mnemonicParsing="false" onAction="#clicklaundryHistori" prefHeight="30.0" prefWidth="346.0" style="-fx-background-color: D9BCBC;" text="Histori laundry">
+                  <Button fx:id="laundryHistori" layoutX="269.0" layoutY="195.0" mnemonicParsing="false" onAction="#clicklaundryHistori" prefHeight="30.0" prefWidth="346.0" style="-fx-background-color: D9BCBC;" text="Histori laundry">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
                   <Button fx:id="tambahLaundry" layoutX="270.0" layoutY="78.0" mnemonicParsing="false" onAction="#clicktambahLaundry" prefHeight="30.0" prefWidth="346.0" style="-fx-background-color: D9BCBC;" text="Tambah laundry">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="laundryJalan" layoutX="270.0" layoutY="159.0" mnemonicParsing="false" onAction="#clicklaundryJalan" prefHeight="30.0" prefWidth="346.0" style="-fx-background-color: D9BCBC;" text="Laundry yang sedang berjalan">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>

@@ -10,10 +10,6 @@ public class MenuAwal {
         HelloApplication.setRoot("FrontEnd/cobadulu");
     }
     @FXML
-    private void clicklaundryJalan() throws IOException {
-        HelloApplication.setRoot("FrontEnd/laundryJalan");
-    }
-    @FXML
     private void clicklaundryHistori() throws IOException {
         HelloApplication.setRoot("FrontEnd/historiLaundry");
     }

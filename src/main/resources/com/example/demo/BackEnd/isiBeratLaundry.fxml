@@ -8,31 +8,24 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <HBox style="-fx-alignment: center;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.IsiBeratLaundry">
    <children>
       <VBox style="-fx-alignment: center;">
          <children>
             <AnchorPane prefHeight="422.0" prefWidth="651.0" style="-fx-background-color: D9BCBC;">
                <children>
-                  <Text layoutX="52.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No. Cucian">
+                  <Text layoutX="46.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No. Cucian">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="52.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipe Cucian">
+                  <Text layoutX="46.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Berat Cucian">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="52.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Berat Cucian">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <TextField layoutX="191.0" layoutY="66.0" prefHeight="26.0" prefWidth="366.0" />
-                  <TextField layoutX="191.0" layoutY="121.0" prefHeight="26.0" prefWidth="366.0" />
-                  <TextField layoutX="191.0" layoutY="177.0" prefHeight="26.0" prefWidth="366.0" />
+                  <TextField fx:id="nocucianText" layoutX="46.0" layoutY="106.0" prefHeight="26.0" prefWidth="558.0" />
+                  <TextField fx:id="beratcucianText" layoutX="46.0" layoutY="203.0" prefHeight="26.0" prefWidth="558.0" />
                   <Button fx:id="tambah" layoutX="191.0" layoutY="277.0" mnemonicParsing="false" onAction="#clickTambah" text="Tambah">
                      <font>
                         <Font size="18.0" />
