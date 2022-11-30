@@ -105,7 +105,8 @@ public class DataHarga implements Initializable {
             Connection connectDB = connectNow.getConnection();
             String value1 = hargacuciText.getText();
             String value2 = jeniscucianLabel.getText();
-            String query = "Update HargaCuci Set HargaCucian='" + value1 + "' where JenisCucian='" + value2 + "'";
+            String value3 = tipecucianLabel.getText();
+            String query = "Update HargaCuci Set HargaCucian='" + value1 + "' where JenisCucian='" + value2 + "' and TipeCucian='"+value3+"'";
             PreparedStatement sqlStatement = connectDB.prepareStatement(query);
             sqlStatement.execute();
             connectNow.MyAlert("info", "Informasi", "Data berhasil diedit!");

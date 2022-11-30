@@ -166,12 +166,8 @@ public class DataLaundry implements Initializable {
 
             connectNow.MyAlert("info", "Informasi", "Data berhasil disimpan!");
             Update();
-        } catch (SQLServerException conflict) {
-            connectNow.MyAlert("info", "Warning", String.valueOf(conflict));
-//            conflict.getStackTrace();
-//            connectNow.MyAlert("info", "Warning","No Pelanggan tidak ada!");
         } catch (Exception e) {
-//            e.printStackTrace();
+            e.printStackTrace();
             connectNow.MyAlert("info", "Warning", String.valueOf(e));
         }
     }

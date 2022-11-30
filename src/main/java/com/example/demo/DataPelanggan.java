@@ -173,7 +173,7 @@ public class DataPelanggan implements Initializable {
     public void tambahPelanggan() {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
-        String query = "Insert into Pelanggan values (?,?,?,?,?)";
+        String query = "Insert into Pelanggan (NoPelanggan, Nama, JenisKelamin, NoTelp, Alamat) values (?,?,?,?,?)";
         try {
             PreparedStatement sqlStatement = connectDB.prepareStatement(query);
             sqlStatement.setString(1, noPelangganText.getText().trim());
@@ -185,11 +185,8 @@ public class DataPelanggan implements Initializable {
 
             connectNow.MyAlert("info", "Informasi", "Data berhasil disimpan!");
             Update();
-        } catch (SQLServerException conflict) {
-            connectNow.MyAlert("info", "Warning", String.valueOf(conflict));
-//            conflict.getStackTrace();
         } catch (Exception e) {
-//            e.printStackTrace();
+            e.printStackTrace();
             connectNow.MyAlert("info", "Warning", String.valueOf(e));
         }
     }
@@ -209,6 +206,7 @@ public class DataPelanggan implements Initializable {
             connectNow.MyAlert("info", "Informasi", "Data berhasil diedit!");
             Update();
         } catch (Exception e) {
+            e.printStackTrace();
             connectNow.MyAlert("info", "Warning", String.valueOf(e));
         }
     }
@@ -223,6 +221,7 @@ public class DataPelanggan implements Initializable {
             connectNow.MyAlert("info", "Warning", "Data berhasil dihapus!");
             Update();
         } catch (Exception e) {
+            e.printStackTrace();
             connectNow.MyAlert("info", "Warning", String.valueOf(e));
         }
     }
