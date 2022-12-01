@@ -2,10 +2,13 @@ package com.example.demo;
 
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
+import java.util.ResourceBundle;
 
 public class MenuPembayaran {
     @FXML
@@ -42,6 +45,10 @@ public class MenuPembayaran {
     private void clickBayar() throws IOException {
         bayarLaundry();
     }
+    @FXML
+    private void clickCekHarga() throws IOException{
+        cekHarga();
+    }
     public void bayarLaundry(){
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
@@ -74,37 +81,78 @@ public class MenuPembayaran {
             ResultSet rs = st.executeQuery(sql);
             String str1 = null;
             String str2 = null;
-            String str3 = null;
+            double str3 = 0;
             if (rs.next()){
                 str1 = rs.getString("JenisCucian");
                 str2 = rs.getString("TipeCucian");
-                str3 = rs.getString("BeratCucian");
+                str3 = rs.getDouble("BeratCucian");
             }
             //get harga
             Statement st1 = connectDB.createStatement();
-            String sql1 = "Execute dbo.GetHarga ('"+str1+"', '"+str2+"')";
+            String sql1 = "Execute dbo.GetHarga '"+str1+"', '"+str2+"'";
             ResultSet rs1 = st1.executeQuery(sql1);
-            String str11 = null;
+            double str11 = 0;
             if (rs1.next()){
-                str11 = rs1.getString("HargaCucian");
+                str11 = rs1.getDouble("HargaCucian");
             }
             //get TotalHarga
             Statement st2 = connectDB.createStatement();
-            String sql2 = "Execute dbo.GetTotalHarga ('"+str1+"', '"+str2+"')";
+            String sql2 = "Select dbo.GetTotalHarga ('"+str3+"', '"+str11+"') as totalharga";
             ResultSet rs2 = st2.executeQuery(sql2);
-            String total = null;
+            double total = 0;
             if (rs2.next()){
-                total = rs2.getString("HargaCucian");
+                total = rs2.getDouble("totalharga");
             }
 
-            sqlStatement.setString(3, total);
+            sqlStatement.setString(3, String.valueOf(total));
             sqlStatement.setString(4, nocucianText.getText().trim());
             sqlStatement.execute();
 
-            connectNow.MyAlert("info", "Informasi", "Data berhasil disimpan!");
+            connectNow.MyAlert("info", "Informasi", "Laundry berhasil dibayar!");
         } catch (Exception e) {
             e.printStackTrace();
             connectNow.MyAlert("info", "Warning", String.valueOf(e));
+        }
+    }
+    public void cekHarga() {
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+
+        String noCucian = nocucianText.getText();
+
+        try {
+            //get jeniscucian dan tipecucian
+            Statement st = connectDB.createStatement();
+            String sql = "Select JenisCucian, TipeCucian, BeratCucian from Pesanan a, Pembayaran b " +
+                    "where a.NomorCucian = b.NomorCucian and a.NomorCucian = '"+nocucianText.getText()+"'";
+            ResultSet rs = st.executeQuery(sql);
+            String str1 = null;
+            String str2 = null;
+            double str3 = 0;
+            if (rs.next()){
+                str1 = rs.getString("JenisCucian");
+                str2 = rs.getString("TipeCucian");
+                str3 = rs.getDouble("BeratCucian");
+            }
+            //get harga
+            Statement st1 = connectDB.createStatement();
+            String sql1 = "Execute dbo.GetHarga '"+str1+"', '"+str2+"'";
+            ResultSet rs1 = st1.executeQuery(sql1);
+            double str11 = 0;
+            if (rs1.next()){
+                str11 = rs1.getDouble("HargaCucian");
+            }
+            //get TotalHarga
+            Statement st2 = connectDB.createStatement();
+            String sql2 = "Select dbo.GetTotalHarga ('"+str3+"', '"+str11+"') as totalharga";
+            ResultSet rs2 = st2.executeQuery(sql2);
+            double total = 0;
+            if (rs2.next()){
+                total = rs2.getDouble("totalharga");
+            }
+            hargaLabel.setText(String.valueOf(total));
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 }
