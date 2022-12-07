@@ -59,11 +59,8 @@ public class cobadulu {
         Connection connectDB = connectNow.getConnection();
 
         String query = "Update Pelanggan set Alamat = '"+alamatText.getText()+"' where Nama = '"+namaText.getText()+"' or NoTelp = '"+notelpText.getText()+"'";
-        String queryPesanan = "insert into Pesanan values (?,?,?,?,?,?)";
-        int min = 1000;
-        int max = 1000000;
-        int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
-        String randomGen = String.valueOf(random_int);
+        String queryPesanan = "insert into Pesanan (TglCucian, JenisCucian,TipeCucian, BeratCucian, NoPelanggan) values (?,?,?,?,?)";
+
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDate now = LocalDate.now();
 
@@ -82,24 +79,23 @@ public class cobadulu {
 
             ResultSet execute = null;
             PreparedStatement sqlStatement1 = connectDB.prepareStatement(queryPesanan, Statement.RETURN_GENERATED_KEYS);
-            sqlStatement1.setString(1,randomGen.trim());
-            sqlStatement1.setString(2,now.toString());
+            sqlStatement1.setString(1,now.toString());
             String value3;
             if (jenisCucianRB.getSelectedToggle().toString().contains("Satuan")) {
                 value3 = "Satuan";
             } else {
                 value3 = "Kiloan";
             }
-            sqlStatement1.setString(3,value3);
+            sqlStatement1.setString(2,value3);
             String value4;
             if (tipeCucianRB.getSelectedToggle().toString().contains("Standar")) {
                 value4 = "Standar";
             } else {
                 value4 = "Premium";
             }
-            sqlStatement1.setString(4,value4);
-            sqlStatement1.setString(5,null);
-            sqlStatement1.setString(6,str1);
+            sqlStatement1.setString(3,value4);
+            sqlStatement1.setString(4,null);
+            sqlStatement1.setString(5,str1);
             sqlStatement1.execute();
             execute = sqlStatement1.getGeneratedKeys();
             HelloApplication.setRoot("FrontEnd/coba2");

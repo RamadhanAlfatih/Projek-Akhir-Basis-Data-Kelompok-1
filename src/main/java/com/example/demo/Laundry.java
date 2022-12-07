@@ -2,14 +2,14 @@ package com.example.demo;
 import java.sql.Date;
 
 public class Laundry {
-    String NomorCucian;
+    int NomorCucian;
     Date TglCucian;
     String JenisCucian;
     String TipeCucian;
     String BeratCucian;
-    String NoPelanggan;
+    int NoPelanggan;
 
-    public Laundry(String nomorCucian, Date tglCucian, String jenisCucian, String tipeCucian, String beratCucian, String noPelanggan) {
+    public Laundry(int nomorCucian, Date tglCucian, String jenisCucian, String tipeCucian, String beratCucian, int noPelanggan) {
         NomorCucian = nomorCucian;
         TglCucian = tglCucian;
         JenisCucian = jenisCucian;
@@ -18,11 +18,11 @@ public class Laundry {
         NoPelanggan = noPelanggan;
     }
 
-    public String getNomorCucian() {
+    public int getNomorCucian() {
         return NomorCucian;
     }
 
-    public void setNomorCucian(String nomorCucian) {
+    public void setNomorCucian(int nomorCucian) {
         NomorCucian = nomorCucian;
     }
 
@@ -58,11 +58,11 @@ public class Laundry {
         BeratCucian = beratCucian;
     }
 
-    public String getNoPelanggan() {
+    public int getNoPelanggan() {
         return NoPelanggan;
     }
 
-    public void setNoPelanggan(String noPelanggan) {
+    public void setNoPelanggan(int noPelanggan) {
         NoPelanggan = noPelanggan;
     }
 }

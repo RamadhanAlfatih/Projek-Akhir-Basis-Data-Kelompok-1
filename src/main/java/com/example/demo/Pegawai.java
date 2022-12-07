@@ -1,13 +1,13 @@
 package com.example.demo;
 
 public class Pegawai {
-    String IdPegawai;
+    int IdPegawai;
     String Nama;
     String JenisKelamin;
     String NoTelp;
     String Alamat;
 
-    public Pegawai(String idPegawai, String nama, String jenisKelamin, String noTelp, String alamat) {
+    public Pegawai(int idPegawai, String nama, String jenisKelamin, String noTelp, String alamat) {
         IdPegawai = idPegawai;
         Nama = nama;
         JenisKelamin = jenisKelamin;
@@ -15,11 +15,11 @@ public class Pegawai {
         Alamat = alamat;
     }
 
-    public String getIdPegawai() {
+    public int getIdPegawai() {
         return IdPegawai;
     }
 
-    public void setIdPegawai(String idPegawai) {
+    public void setIdPegawai(int idPegawai) {
         IdPegawai = idPegawai;
     }
 

@@ -72,7 +72,7 @@ public class DataLaundry implements Initializable {
     @FXML
     private TableView<Laundry> laundryTable;
     @FXML
-    private TableColumn<Laundry, String> noCucian;
+    private TableColumn<Laundry, Integer> noCucian;
     @FXML
     private TableColumn<Laundry, String> jenisCucian;
     @FXML
@@ -82,7 +82,7 @@ public class DataLaundry implements Initializable {
     @FXML
     private TableColumn<Laundry, String> beratCucian;
     @FXML
-    private TableColumn<Laundry, String> noPelanggan;
+    private TableColumn<Laundry, Integer> noPelanggan;
 
     ObservableList<Laundry> listM;
     ObservableList<Laundry> dataList;
@@ -98,7 +98,7 @@ public class DataLaundry implements Initializable {
         if (index <= -1) {
             return;
         }
-        noCucianText.setText(noCucian.getCellData(index));
+        noCucianText.setText(String.valueOf(noCucian.getCellData(index)));
         tglCucianDate.setValue(tglCucian.getCellData(index).toLocalDate());
         if (jenisCucian.getCellData(index).equalsIgnoreCase("Satuan")) {
             jenisCucianRB.selectToggle(satuanRB);
@@ -111,7 +111,7 @@ public class DataLaundry implements Initializable {
             tipeCucianRB.selectToggle(premiumRB);
         }
         beratCucianText.setText(beratCucian.getCellData(index));
-        noPelangganText.setText(noPelanggan.getCellData(index));
+        noPelangganText.setText(String.valueOf(noPelanggan.getCellData(index)));
     }
 
     public static ObservableList<Laundry> getDatausers() {
@@ -123,8 +123,8 @@ public class DataLaundry implements Initializable {
             ResultSet result = ps.executeQuery();
 
             while (result.next()) {
-                list.add(new Laundry(result.getString("NomorCucian"), result.getDate("TglCucian"), result.getString("JenisCucian"),
-                        result.getString("TipeCucian"), result.getString("BeratCucian"), result.getString("NoPelanggan")));
+                list.add(new Laundry(result.getInt("NomorCucian"), result.getDate("TglCucian"), result.getString("JenisCucian"),
+                        result.getString("TipeCucian"), result.getString("BeratCucian"), result.getInt("NoPelanggan")));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -141,11 +141,10 @@ public class DataLaundry implements Initializable {
     public void tambahLaundry() {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
-        String query = "Insert into Pesanan values (?,?,?,?,?,?)";
+        String query = "Insert into Pesanan (TglCucian, JenisCucian, TipeCucian, BeratCucian, NoPelanggan) values (?,?,?,?,?)";
         try {
             PreparedStatement sqlStatement = connectDB.prepareStatement(query);
-            sqlStatement.setString(1, noCucianText.getText().trim());
-            sqlStatement.setString(2, tglCucianDate.getValue().toString());
+            sqlStatement.setString(1, tglCucianDate.getValue().toString());
             String value3;
             if (jenisCucianRB.getSelectedToggle().toString().contains("Satuan")) {
                 value3 = "Satuan";
@@ -158,10 +157,10 @@ public class DataLaundry implements Initializable {
             } else {
                 value4 = "Premium";
             }
-            sqlStatement.setString(3, value3);
-            sqlStatement.setString(4, value4);
-            sqlStatement.setString(5, beratCucianText.getText().trim());
-            sqlStatement.setString(6, noPelangganText.getText().trim());
+            sqlStatement.setString(2, value3);
+            sqlStatement.setString(3, value4);
+            sqlStatement.setString(4, beratCucianText.getText().trim());
+            sqlStatement.setString(5, noPelangganText.getText().trim());
             sqlStatement.execute();
 
             connectNow.MyAlert("info", "Informasi", "Data berhasil disimpan!");
@@ -173,12 +172,12 @@ public class DataLaundry implements Initializable {
     }
 
     public void cariLaundry() {
-        noCucian.setCellValueFactory(new PropertyValueFactory<Laundry, String>("NomorCucian"));
+        noCucian.setCellValueFactory(new PropertyValueFactory<Laundry, Integer>("NomorCucian"));
         tglCucian.setCellValueFactory(new PropertyValueFactory<Laundry, Date>("TglCucian"));
         jenisCucian.setCellValueFactory(new PropertyValueFactory<Laundry, String>("JenisCucian"));
         tipeCucian.setCellValueFactory(new PropertyValueFactory<Laundry, String>("TipeCucian"));
         beratCucian.setCellValueFactory(new PropertyValueFactory<Laundry, String>("BeratCucian"));
-        noPelanggan.setCellValueFactory(new PropertyValueFactory<Laundry, String>("NoPelanggan"));
+        noPelanggan.setCellValueFactory(new PropertyValueFactory<Laundry, Integer>("NoPelanggan"));
 
         dataList = DataLaundry.getDatausers();
         laundryTable.setItems(dataList);
@@ -188,7 +187,7 @@ public class DataLaundry implements Initializable {
                 return true;
             }
             String lowerCaseFilter = newValue.toLowerCase();
-            if (person.getNomorCucian().toLowerCase().contains(lowerCaseFilter)) {
+            if (String.valueOf(person.getNomorCucian()).toLowerCase().contains(lowerCaseFilter)) {
                 return true;
             } else if (person.getJenisCucian().toLowerCase().contains(lowerCaseFilter)) {
                 return true;
@@ -198,7 +197,7 @@ public class DataLaundry implements Initializable {
                 return true;
             } else if (person.getBeratCucian().toLowerCase().contains(lowerCaseFilter)) {
                 return true;
-            } else if (person.getNoPelanggan().toLowerCase().contains(lowerCaseFilter)) {
+            } else if (String.valueOf(person.getNoPelanggan()).toLowerCase().contains(lowerCaseFilter)) {
                 return true;
             } else {
                 return false;
@@ -225,12 +224,12 @@ public class DataLaundry implements Initializable {
     }
 
     public void Update() {
-        noCucian.setCellValueFactory(new PropertyValueFactory<Laundry, String>("NomorCucian"));
+        noCucian.setCellValueFactory(new PropertyValueFactory<Laundry, Integer>("NomorCucian"));
         tglCucian.setCellValueFactory(new PropertyValueFactory<Laundry, Date>("TglCucian"));
         jenisCucian.setCellValueFactory(new PropertyValueFactory<Laundry, String>("JenisCucian"));
         tipeCucian.setCellValueFactory(new PropertyValueFactory<Laundry, String>("TipeCucian"));
         beratCucian.setCellValueFactory(new PropertyValueFactory<Laundry, String>("BeratCucian"));
-        noPelanggan.setCellValueFactory(new PropertyValueFactory<Laundry, String>("NoPelanggan"));
+        noPelanggan.setCellValueFactory(new PropertyValueFactory<Laundry, Integer>("NoPelanggan"));
 
         listM = DataLaundry.getDatausers();
         laundryTable.setItems(listM);
@@ -256,7 +255,7 @@ public class DataLaundry implements Initializable {
             }
             String value5 = beratCucianText.getText().trim();
             String value6 = noPelangganText.getText().trim();
-            String query = "Update Pesanan Set NomorCucian='" + value1 + "',TglCucian='" + value2 + "',JenisCucian='" + value3 + "',TipeCucian='" + value4 + "',BeratCucian='" +
+            String query = "Update Pesanan Set TglCucian='" + value2 + "',JenisCucian='" + value3 + "',TipeCucian='" + value4 + "',BeratCucian='" +
                     value5 + "',NoPelanggan='" + value6 + "' where NomorCucian='" + value1 + "'";
             PreparedStatement sqlStatement = connectDB.prepareStatement(query);
             sqlStatement.execute();

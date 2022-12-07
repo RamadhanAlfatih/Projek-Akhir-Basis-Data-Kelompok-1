@@ -38,15 +38,14 @@ public class SigninPegawai {
         Connection connectDB = connectNow.getConnection();
         String verifySignin = "Select count(1) from LoginDataPegawai Where Username = '"+username.getText().trim()+"'";
         String verifyIdPegawai = "Select count(1) from LoginDataPegawai Where IdPegawai = '"+IdPegawai.getText().trim()+"'";
-//        String query = "insert into LoginDataPegawai values ('"+username.getText().trim()+"', '"+password.getText().trim()+"', '"+IdPegawai.getText().trim()+"', '"+noHp.getText().trim()+"')";
         String query = "insert into LoginDataPegawai values (?,?,?,?)";
         try {
             Statement statement = connectDB.createStatement();
             Statement statement1 = connectDB.createStatement();
-//            ResultSet queryResult = statement.executeQuery(verifySignin);
+
             ResultSet queryResult = null;
             queryResult = statement.executeQuery(verifySignin);
-//            ResultSet queryResult1 = statement.executeQuery(verifyIdPegawai);
+
             ResultSet queryResult1 = null;
             queryResult1 = statement1.executeQuery(verifyIdPegawai);
             boolean validation = false;

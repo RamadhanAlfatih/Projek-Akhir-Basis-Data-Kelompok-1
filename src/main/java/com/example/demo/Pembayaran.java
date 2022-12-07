@@ -1,13 +1,13 @@
 package com.example.demo;
 
 public class Pembayaran {
-    String NoPembayaran;
+    int NoPembayaran;
     String JenisPembayaran;
     float TotalHarga;
-    String NomorCucian;
-    String IdPegawai;
+    int NomorCucian;
+    int IdPegawai;
 
-    public Pembayaran(String noPembayaran, String jenisPembayaran, float totalHarga, String nomorCucian, String idPegawai) {
+    public Pembayaran(int noPembayaran, String jenisPembayaran, float totalHarga, int nomorCucian, int idPegawai) {
         NoPembayaran = noPembayaran;
         JenisPembayaran = jenisPembayaran;
         TotalHarga = totalHarga;
@@ -15,11 +15,11 @@ public class Pembayaran {
         IdPegawai = idPegawai;
     }
 
-    public String getNoPembayaran() {
+    public int getNoPembayaran() {
         return NoPembayaran;
     }
 
-    public void setNoPembayaran(String noPembayaran) {
+    public void setNoPembayaran(int noPembayaran) {
         NoPembayaran = noPembayaran;
     }
 
@@ -39,19 +39,19 @@ public class Pembayaran {
         TotalHarga = totalHarga;
     }
 
-    public String getNomorCucian() {
+    public int getNomorCucian() {
         return NomorCucian;
     }
 
-    public void setNomorCucian(String nomorCucian) {
+    public void setNomorCucian(int nomorCucian) {
         NomorCucian = nomorCucian;
     }
 
-    public String getIdPegawai() {
+    public int getIdPegawai() {
         return IdPegawai;
     }
 
-    public void setIdPegawai(String idPegawai) {
+    public void setIdPegawai(int idPegawai) {
         IdPegawai = idPegawai;
     }
 }

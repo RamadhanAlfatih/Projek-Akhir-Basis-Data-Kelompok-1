@@ -21,7 +21,7 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="nopembayaranText" layoutX="150.0" layoutY="13.0" prefHeight="26.0" prefWidth="107.0" />
+                  <TextField fx:id="nopembayaranText" editable="false" layoutX="150.0" layoutY="13.0" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: DDDD;" />
                   <Text layoutX="7.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jenis Pembayaran">
                      <font>
                         <Font size="18.0" />

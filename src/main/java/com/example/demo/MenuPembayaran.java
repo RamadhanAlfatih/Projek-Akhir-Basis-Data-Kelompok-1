@@ -42,117 +42,150 @@ public class MenuPembayaran {
         HelloApplication.setRoot("FrontEnd/menuAwal");
     }
     @FXML
-    private void clickBayar() throws IOException {
+    private void clickBayar() throws IOException, SQLException {
         bayarLaundry();
     }
     @FXML
-    private void clickCekHarga() throws IOException{
+    private void clickCekHarga() throws IOException, SQLException {
         cekHarga();
     }
-    public void bayarLaundry(){
+    public void bayarLaundry() throws SQLException {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        String query = "Insert into Pembayaran (NoPembayaran,JenisPembayaran,TotalHarga,NomorCucian) values (?,?,?,?)";
-        //random gen
-        int min = 1000;
-        int max = 1000000;
-        int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
-        String randomGen = String.valueOf(random_int);
+        String noCucian = nocucianText.getText();
+        String query = "Insert into Pembayaran (JenisPembayaran, TotalHarga, NomorCucian) values (?,?,?)";
 
+        Statement cek = connectDB.createStatement();
+        String sequel = "Select BeratCucian from Pesanan where NomorCucian= '"+nocucianText.getText()+"'";
+        ResultSet resultSet = cek.executeQuery(sequel);
+        String stringgg = null;
         try {
-            PreparedStatement sqlStatement = connectDB.prepareStatement(query);
-            sqlStatement.setString(1, randomGen.trim());
-            String value;
-            if (metodePembayaranRB.getSelectedToggle().toString().contains("Cash")) {
-                value = "Cash";
-            } else if (metodePembayaranRB.getSelectedToggle().toString().contains("Qris")){
-                value = "Qris";
-            } else if (metodePembayaranRB.getSelectedToggle().toString().contains("Gopay")) {
-                value = "Gopay";
-            } else {
-                value = "Shopeepay";
+            if (resultSet.next()){
+                stringgg = resultSet.getString("BeratCucian");
             }
-            sqlStatement.setString(2, value.trim());
-            //get jeniscucian dan tipecucian
-            Statement st = connectDB.createStatement();
-            String sql = "Select JenisCucian, TipeCucian, BeratCucian from Pesanan a, Pembayaran b " +
-                    "where a.NomorCucian = b.NomorCucian and a.NomorCucian = '"+nocucianText.getText()+"'";
-            ResultSet rs = st.executeQuery(sql);
-            String str1 = null;
-            String str2 = null;
-            double str3 = 0;
-            if (rs.next()){
-                str1 = rs.getString("JenisCucian");
-                str2 = rs.getString("TipeCucian");
-                str3 = rs.getDouble("BeratCucian");
-            }
-            //get harga
-            Statement st1 = connectDB.createStatement();
-            String sql1 = "Execute dbo.GetHarga '"+str1+"', '"+str2+"'";
-            ResultSet rs1 = st1.executeQuery(sql1);
-            double str11 = 0;
-            if (rs1.next()){
-                str11 = rs1.getDouble("HargaCucian");
-            }
-            //get TotalHarga
-            Statement st2 = connectDB.createStatement();
-            String sql2 = "Select dbo.GetTotalHarga ('"+str3+"', '"+str11+"') as totalharga";
-            ResultSet rs2 = st2.executeQuery(sql2);
-            double total = 0;
-            if (rs2.next()){
-                total = rs2.getDouble("totalharga");
-            }
-
-            sqlStatement.setString(3, String.valueOf(total));
-            sqlStatement.setString(4, nocucianText.getText().trim());
-            sqlStatement.execute();
-
-            connectNow.MyAlert("info", "Informasi", "Laundry berhasil dibayar!");
-        } catch (Exception e) {
-            e.printStackTrace();
-            connectNow.MyAlert("info", "Warning", String.valueOf(e));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
+
+        if (stringgg == null){
+            connectNow.MyAlert("warning", "Warning", "Berat laundry masih belum ditimbang!");
+        }else {
+            try {
+                PreparedStatement sqlStatement = connectDB.prepareStatement(query);
+                String value;
+                if (metodePembayaranRB.getSelectedToggle().toString().contains("Cash")) {
+                    value = "Cash";
+                } else if (metodePembayaranRB.getSelectedToggle().toString().contains("Qris")){
+                    value = "Qris";
+                } else if (metodePembayaranRB.getSelectedToggle().toString().contains("Gopay")) {
+                    value = "Gopay";
+                } else {
+                    value = "Shopeepay";
+                }
+                sqlStatement.setString(1, value.trim());
+                //get jeniscucian dan tipecucian
+                Statement st = connectDB.createStatement();
+                String sql = "Select JenisCucian, TipeCucian, BeratCucian from Pesanan a, Pembayaran b " +
+                        "where a.NomorCucian = b.NomorCucian and a.NomorCucian = '"+nocucianText.getText()+"'";
+                ResultSet rs = st.executeQuery(sql);
+                String str1 = null;
+                String str2 = null;
+                double str3 = 0;
+                if (rs.next()){
+                    str1 = rs.getString("JenisCucian");
+                    str2 = rs.getString("TipeCucian");
+                    str3 = rs.getDouble("BeratCucian");
+                }
+                //get harga
+                Statement st1 = connectDB.createStatement();
+                String sql1 = "Execute dbo.GetHarga '"+str1+"', '"+str2+"'";
+                ResultSet rs1 = st1.executeQuery(sql1);
+                double str11 = 0;
+                if (rs1.next()){
+                    str11 = rs1.getDouble("HargaCucian");
+                }
+                //get TotalHarga
+                Statement st2 = connectDB.createStatement();
+                String sql2 = "Select dbo.GetTotalHarga ('"+str3+"', '"+str11+"') as totalharga";
+                ResultSet rs2 = st2.executeQuery(sql2);
+                double total = 0;
+                if (rs2.next()){
+                    total = rs2.getDouble("totalharga");
+                }
+
+                sqlStatement.setString(2, String.valueOf(total));
+                sqlStatement.setString(3, nocucianText.getText().trim());
+                sqlStatement.execute();
+
+                connectNow.MyAlert("info", "Informasi", "Laundry berhasil dibayar!");
+            } catch (Exception e) {
+                e.printStackTrace();
+                connectNow.MyAlert("info", "Warning", String.valueOf(e));
+            }
+        }
+
+
+
+
     }
-    public void cekHarga() {
+    public void cekHarga() throws SQLException {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
         String noCucian = nocucianText.getText();
 
+        Statement cek = connectDB.createStatement();
+        String sequel = "Select BeratCucian from Pesanan where NomorCucian= '"+nocucianText.getText()+"'";
+        ResultSet resultSet = cek.executeQuery(sequel);
+        String stringgg = null;
         try {
-            //get jeniscucian dan tipecucian
-            Statement st = connectDB.createStatement();
-            String sql = "Select JenisCucian, TipeCucian, BeratCucian from Pesanan a, Pembayaran b " +
-                    "where a.NomorCucian = b.NomorCucian and a.NomorCucian = '"+nocucianText.getText()+"'";
-            ResultSet rs = st.executeQuery(sql);
-            String str1 = null;
-            String str2 = null;
-            double str3 = 0;
-            if (rs.next()){
-                str1 = rs.getString("JenisCucian");
-                str2 = rs.getString("TipeCucian");
-                str3 = rs.getDouble("BeratCucian");
+            if (resultSet.next()){
+                stringgg = resultSet.getString("BeratCucian");
             }
-            //get harga
-            Statement st1 = connectDB.createStatement();
-            String sql1 = "Execute dbo.GetHarga '"+str1+"', '"+str2+"'";
-            ResultSet rs1 = st1.executeQuery(sql1);
-            double str11 = 0;
-            if (rs1.next()){
-                str11 = rs1.getDouble("HargaCucian");
-            }
-            //get TotalHarga
-            Statement st2 = connectDB.createStatement();
-            String sql2 = "Select dbo.GetTotalHarga ('"+str3+"', '"+str11+"') as totalharga";
-            ResultSet rs2 = st2.executeQuery(sql2);
-            double total = 0;
-            if (rs2.next()){
-                total = rs2.getDouble("totalharga");
-            }
-            hargaLabel.setText(String.valueOf(total));
-        }catch (Exception e){
-            e.printStackTrace();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
+
+        if (stringgg == null){
+            connectNow.MyAlert("warning", "Warning", "Berat laundry masih belum ditimbang!");
+        }else {
+            try {
+                //get jeniscucian dan tipecucian
+                Statement st = connectDB.createStatement();
+                String sql = "Select JenisCucian, TipeCucian, BeratCucian from Pesanan a, Pembayaran b " +
+                        "where a.NomorCucian = b.NomorCucian and a.NomorCucian = '"+nocucianText.getText()+"'";
+                ResultSet rs = st.executeQuery(sql);
+                String str1 = null;
+                String str2 = null;
+                double str3 = 0;
+                if (rs.next()){
+                    str1 = rs.getString("JenisCucian");
+                    str2 = rs.getString("TipeCucian");
+                    str3 = rs.getDouble("BeratCucian");
+                }
+                //get harga
+                Statement st1 = connectDB.createStatement();
+                String sql1 = "Execute dbo.GetHarga '"+str1+"', '"+str2+"'";
+                ResultSet rs1 = st1.executeQuery(sql1);
+                double str11 = 0;
+                if (rs1.next()){
+                    str11 = rs1.getDouble("HargaCucian");
+                }
+                //get TotalHarga
+                Statement st2 = connectDB.createStatement();
+                String sql2 = "Select dbo.GetTotalHarga ('"+str3+"', '"+str11+"') as totalharga";
+                ResultSet rs2 = st2.executeQuery(sql2);
+                double total = 0;
+                if (rs2.next()){
+                    total = rs2.getDouble("totalharga");
+                }
+                hargaLabel.setText(String.valueOf(total));
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+
     }
 }

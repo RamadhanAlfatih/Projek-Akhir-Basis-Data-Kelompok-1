@@ -21,7 +21,7 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="idPegawaiText" layoutX="109.0" layoutY="13.0" prefHeight="26.0" prefWidth="121.0" />
+                  <TextField fx:id="idPegawaiText" editable="false" layoutX="109.0" layoutY="13.0" prefHeight="26.0" prefWidth="121.0" style="-fx-background-color: DDDD;" />
                   <Text layoutX="14.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nama">
                      <font>
                         <Font size="18.0" />

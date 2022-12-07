@@ -42,16 +42,10 @@ public class signin_controller {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
         String verifySignin = "Select count(1) from LoginDataPelanggan Where Username = '"+username.getText()+"'";
-//        String query = "insert into LoginDataPelanggan values ('"+username.getText().trim()+"', '"+password.getText().trim()+"', '"+nama.getText().trim()+"', '"+noHp.getText().trim()+"')";
 
         String query = "insert into LoginDataPelanggan values (?,?,?,?)";
-        String query1 = "Insert into Pelanggan (NoPelanggan, Username, Nama, NoTelp, JenisKelamin) values (?,?,?,?,?)";
-        //Generate random int value from 50 to 100
-        int min = 1000;
-        int max = 1000000;
-        int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
-        String randomGen = String.valueOf(random_int);
-//        String verifyNoPelanggan = "Select count(1) from Pelanggan Where Username = '"+randomGen+"'";
+        String query1 = "Insert into Pelanggan (Username, Nama, JenisKelamin, NoTelp) values (?,?,?,?)";
+
 
         try {
             Statement statement = connectDB.createStatement();
@@ -74,17 +68,17 @@ public class signin_controller {
 
                     ResultSet execute1 = null;
                     PreparedStatement sqlStatement1 = connectDB.prepareStatement(query1, Statement.RETURN_GENERATED_KEYS);
-                    sqlStatement1.setString(1,randomGen);
-                    sqlStatement1.setString(2,username.getText().trim());
-                    sqlStatement1.setString(3,nama.getText().trim());
-                    sqlStatement1.setString(4,noHp.getText().trim());
+                    sqlStatement1.setString(1,username.getText().trim());
+                    sqlStatement1.setString(2,nama.getText().trim());
                     String value;
                     if (jenisKelaminRBGroup.getSelectedToggle().toString().contains("laki")) {
                         value = "L";
                     } else {
                         value = "P";
                     }
-                    sqlStatement1.setString(5,value);
+                    sqlStatement1.setString(3,value.trim());
+                    sqlStatement1.setString(4,noHp.getText().trim());
+
                     sqlStatement1.execute();
                     execute1 = sqlStatement1.getGeneratedKeys();
                     while (execute.next()&&execute1.next()){

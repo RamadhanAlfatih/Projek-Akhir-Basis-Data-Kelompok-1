@@ -40,8 +40,8 @@
                         <Image url="@../Images/icons8-male-user-96.png" />
                      </image>
                   </ImageView>
-                  <PasswordField fx:id="password" layoutX="451.0" layoutY="228.0" onAction="#enterPassword" promptText="********" />
                   <TextField fx:id="username" layoutX="451.0" layoutY="180.0" promptText="wibuabiezzz99" />
+                  <PasswordField fx:id="password" layoutX="451.0" layoutY="228.0" onAction="#enterPassword" promptText="********" />
                   <Text layoutX="349.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
                      <font>
                         <Font size="18.0" />

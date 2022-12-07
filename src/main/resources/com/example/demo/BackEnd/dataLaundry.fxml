@@ -24,7 +24,7 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="noCucianText" layoutX="138.0" layoutY="3.0" prefHeight="26.0" prefWidth="174.0" />
+                  <TextField fx:id="noCucianText" editable="false" layoutX="138.0" layoutY="3.0" prefHeight="26.0" prefWidth="174.0" style="-fx-background-color: DDDD;" />
                   <Text layoutX="10.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jenis Cucian">
                      <font>
                         <Font size="18.0" />

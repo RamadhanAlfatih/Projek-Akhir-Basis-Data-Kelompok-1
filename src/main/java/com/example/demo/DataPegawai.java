@@ -51,7 +51,7 @@ public class DataPegawai implements Initializable {
     private Button hapus;
 
     @FXML
-    private TableColumn<Pegawai, String> idPegawaiCol;
+    private TableColumn<Pegawai, Integer> idPegawaiCol;
 
     @FXML
     private TextField idPegawaiText;
@@ -85,7 +85,7 @@ public class DataPegawai implements Initializable {
         if (index <= -1) {
             return;
         }
-        idPegawaiText.setText(idPegawaiCol.getCellData(index));
+        idPegawaiText.setText(String.valueOf(idPegawaiCol.getCellData(index)));
         namaText.setText(namaCol.getCellData(index));
         jenisKelaminText.setText(jeniskelaminCol.getCellData(index));
         notelpText.setText(notelpCol.getCellData(index));
@@ -125,7 +125,7 @@ public class DataPegawai implements Initializable {
             ResultSet result = ps.executeQuery();
 
             while (result.next()) {
-                list.add(new Pegawai(result.getString("IdPegawai"), result.getString("Nama"), result.getString("JenisKelamin"),
+                list.add(new Pegawai(result.getInt("IdPegawai"), result.getString("Nama"), result.getString("JenisKelamin"),
                         result.getString("NoTelp"), result.getString("Alamat")));
             }
         } catch (Exception e) {
@@ -134,7 +134,7 @@ public class DataPegawai implements Initializable {
         return list;
     }
     public void cariData() {
-        idPegawaiCol.setCellValueFactory(new PropertyValueFactory<Pegawai, String>("IdPegawai"));
+        idPegawaiCol.setCellValueFactory(new PropertyValueFactory<Pegawai, Integer>("IdPegawai"));
         namaCol.setCellValueFactory(new PropertyValueFactory<Pegawai, String>("Nama"));
         jeniskelaminCol.setCellValueFactory(new PropertyValueFactory<Pegawai, String>("JenisKelamin"));
         notelpCol.setCellValueFactory(new PropertyValueFactory<Pegawai, String>("NoTelp"));
@@ -148,7 +148,7 @@ public class DataPegawai implements Initializable {
                 return true;
             }
             String lowerCaseFilter = newValue.toLowerCase();
-            if (person.getIdPegawai().toLowerCase().contains(lowerCaseFilter)) {
+            if (String.valueOf(person.getIdPegawai()).toLowerCase().contains(lowerCaseFilter)) {
                 return true;
             } else if (person.getNama().toLowerCase().contains(lowerCaseFilter)) {
                 return true;
@@ -169,14 +169,13 @@ public class DataPegawai implements Initializable {
     public void tambahPegawai() {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
-        String query = "Insert into Pegawai values (?,?,?,?,?)";
+        String query = "Insert into Pegawai (Nama, JenisKelamin, NoTelp, Alamat) values (?,?,?,?)";
         try {
             PreparedStatement sqlStatement = connectDB.prepareStatement(query);
-            sqlStatement.setString(1, idPegawaiText.getText().trim());
-            sqlStatement.setString(2, namaText.getText().trim());
-            sqlStatement.setString(3, jenisKelaminText.getText().trim());
-            sqlStatement.setString(4, notelpText.getText());
-            sqlStatement.setString(5, alamatText.getText().trim());
+            sqlStatement.setString(1, namaText.getText().trim());
+            sqlStatement.setString(2, jenisKelaminText.getText().trim());
+            sqlStatement.setString(3, notelpText.getText());
+            sqlStatement.setString(4, alamatText.getText().trim());
             sqlStatement.execute();
 
             connectNow.MyAlert("info", "Informasi", "Data berhasil disimpan!");
@@ -198,7 +197,7 @@ public class DataPegawai implements Initializable {
             String value3 = jenisKelaminText.getText().trim();
             String value4 = notelpText.getText().trim();
             String value5 = alamatText.getText().trim();
-            String query = "Update Pegawai Set IdPegawai='" + value1 + "',Nama='" + value2 + "',JenisKelamin='" + value3 + "',NoTelp='" + value4 + "',Alamat='" +
+            String query = "Update Pegawai Set Nama='" + value2 + "',JenisKelamin='" + value3 + "',NoTelp='" + value4 + "',Alamat='" +
                     value5 + "' where IdPegawai='" + value1 + "'";
             PreparedStatement sqlStatement = connectDB.prepareStatement(query);
             sqlStatement.execute();
