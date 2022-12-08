@@ -3,13 +3,13 @@ package com.example.demo;
 import java.sql.Date;
 
 public class HistoriLaundryObj {
-    String NomorCucian;
+    int NomorCucian;
     Date TglCucian;
     String JenisCucian;
     String TipeCucian;
     float BeratCucian;
 
-    public HistoriLaundryObj(String nomorCucian, Date tglCucian, String jenisCucian, String tipeCucian, float beratCucian) {
+    public HistoriLaundryObj(int nomorCucian, Date tglCucian, String jenisCucian, String tipeCucian, float beratCucian) {
         NomorCucian = nomorCucian;
         TglCucian = tglCucian;
         JenisCucian = jenisCucian;
@@ -17,11 +17,11 @@ public class HistoriLaundryObj {
         BeratCucian = beratCucian;
     }
 
-    public String getNomorCucian() {
+    public int getNomorCucian() {
         return NomorCucian;
     }
 
-    public void setNomorCucian(String nomorCucian) {
+    public void setNomorCucian(int nomorCucian) {
         NomorCucian = nomorCucian;
     }
 

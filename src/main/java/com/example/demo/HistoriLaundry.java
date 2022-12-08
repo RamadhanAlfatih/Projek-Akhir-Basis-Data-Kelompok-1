@@ -113,7 +113,7 @@ public class HistoriLaundry implements Initializable {
             ResultSet result = ps.executeQuery();
 
             while (result.next()) {
-                list.add(new HistoriLaundryObj(result.getString("NomorCucian"), result.getDate("TglCucian"), result.getString("JenisCucian"),
+                list.add(new HistoriLaundryObj(result.getInt("NomorCucian"), result.getDate("TglCucian"), result.getString("JenisCucian"),
                         result.getString("TipeCucian"), result.getFloat("BeratCucian")));
             }
 
@@ -137,7 +137,7 @@ public class HistoriLaundry implements Initializable {
                 return true;
             }
             String lowerCaseFilter = newValue.toLowerCase();
-            if (person.getNomorCucian().toLowerCase().contains(lowerCaseFilter)) {
+            if (String.valueOf(person.getNomorCucian()).toLowerCase().contains(lowerCaseFilter)) {
                 return true;
             } else if (person.getTglCucian().toString().toLowerCase().contains(lowerCaseFilter)) {
                 return true;
