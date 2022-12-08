@@ -35,7 +35,7 @@ public class HistoriLaundry implements Initializable {
     private Button kembali;
 
     @FXML
-    private TableColumn<HistoriLaundryObj, String> nocucianCol;
+    private TableColumn<HistoriLaundryObj, Integer> nocucianCol;
 
     @FXML
     private TextField nocucianText;
@@ -52,8 +52,18 @@ public class HistoriLaundry implements Initializable {
     private void clickKembali() throws IOException {
         HelloApplication.setRoot("FrontEnd/menuAwal");
     }
+    public static int nomorCucian;
+    public static int getNomorCucian() {
+        return nomorCucian;
+    }
+
+    public void setNomorCucian(int nomorCucian) {
+        HistoriLaundry.nomorCucian = nomorCucian;
+    }
+
     @FXML
     private void clickNota() throws IOException {
+        setNomorCucian(Integer.parseInt(nocucianText.getText()));
         HelloApplication.setRoot("FrontEnd/TampilanNota");
     }
     int index = -1;
@@ -63,7 +73,7 @@ public class HistoriLaundry implements Initializable {
         if (index <= -1) {
             return;
         }
-        nocucianText.setText(nocucianCol.getCellData(index));
+        nocucianText.setText(String.valueOf(nocucianCol.getCellData(index)));
     }
     ObservableList<HistoriLaundryObj> listM;
     ObservableList<HistoriLaundryObj> dataList;

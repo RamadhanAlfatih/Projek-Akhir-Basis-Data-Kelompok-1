@@ -4,95 +4,155 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<HBox style="-fx-alignment: center;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.MenuPembayaran">
+<HBox style="-fx-alignment: center;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.TampilanNota">
    <children>
       <VBox style="-fx-alignment: center;">
          <children>
-            <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: D9BCBC;">
+            <AnchorPane prefHeight="422.0" prefWidth="649.0">
                <children>
-                  <Text fill="WHITE" layoutX="14.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No Cucian">
+                  <Text layoutX="23.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laundry Badak">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="Serif Bold" size="24.0" />
                      </font>
                   </Text>
-                  <Pane layoutX="13.0" layoutY="42.0" prefHeight="346.0" prefWidth="574.0" style="-fx-background-color: FFFF;">
-                     <children>
-                        <Text fill="#d9bcbc" layoutX="14.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jenis Cucian">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Text>
-                        <Text fill="#d9bcbc" layoutX="13.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipe Cucian">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Text>
-                        <Text fill="#d9bcbc" layoutX="14.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Berat">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Text>
-                        <Text fill="#d9bcbc" layoutX="14.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Harga">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Text>
-                        <Text fill="#d9bcbc" layoutX="13.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metode Pembayaran">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Text>
-                        <Button fx:id="kembali" layoutX="272.0" layoutY="275.0" mnemonicParsing="false" onAction="#clickKembali" text="Kembali">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                        <Label layoutX="178.0" layoutY="15.0" prefHeight="25.0" prefWidth="311.0" style="-fx-background-color: D9D9D9;">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="178.0" layoutY="62.0" prefHeight="25.0" prefWidth="311.0" style="-fx-background-color: D9D9D9;">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="178.0" layoutY="116.0" prefHeight="25.0" prefWidth="311.0" style="-fx-background-color: D9D9D9;">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="178.0" layoutY="171.0" prefHeight="25.0" prefWidth="311.0" style="-fx-background-color: D9D9D9;">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="178.0" layoutY="219.0" prefHeight="25.0" prefWidth="311.0" style="-fx-background-color: D9D9D9;">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Label layoutX="97.0" layoutY="10.0" prefHeight="26.0" prefWidth="137.0" style="-fx-background-color: D9D9D9;">
+                  <Text layoutX="24.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jln  Veteran No. 21, Malang, Jawa Timur." wrappingWidth="243.93035888671875">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="417.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tanggal" wrappingWidth="51.93048095703125">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="417.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pegawai" wrappingWidth="51.93048095703148">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="tgglLabel" layoutX="542.0" layoutY="14.0" text="Label">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="424.0" layoutY="11.0" prefHeight="26.0" prefWidth="137.0" style="-fx-background-color: D9D9D9;">
+                  <Label fx:id="namapegawaiLabel" layoutX="542.0" layoutY="47.0" text="Label">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Serif Regular" size="14.0" />
                      </font>
                   </Label>
-                  <Text fill="WHITE" layoutX="360.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tanggal">
+                  <Line endX="509.0" endY="7.62939453125E-6" layoutX="121.0" layoutY="272.0" startX="-100.0" />
+                  <Text layoutX="23.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No. Pembayaran" wrappingWidth="107.1304931640625">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="23.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Pelanggan" wrappingWidth="107.1304931640625">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Line endX="509.0" endY="7.62939453125E-6" layoutX="121.0" layoutY="171.0" startX="-100.0" />
+                  <Text layoutX="23.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No. Cucian" wrappingWidth="107.1304931640625">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="23.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jenis Pembayaran" wrappingWidth="119.1304931640625">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="405.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Harga" wrappingWidth="75.93048095703125">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="23.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jenis Cucian" wrappingWidth="107.1304931640625">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="23.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipe Cucian" wrappingWidth="107.1304931640625">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="23.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Berat Cucian" wrappingWidth="107.1304931640625">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="nopembayaranLabel" layoutX="151.0" layoutY="74.0" text="Label">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="namapelangganLabel" layoutX="151.0" layoutY="101.0" text="Label">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nocucianLabel" layoutX="151.0" layoutY="127.0" text="Label">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="jeniscucianLabel" layoutX="542.0" layoutY="183.0" text="Label">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="jenispembayaranLabel" layoutX="151.0" layoutY="293.0" text="Label">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Label>
+                  <Line endX="509.0" endY="7.62939453125E-6" layoutX="121.0" layoutY="280.0" startX="-100.0" />
+                  <Label fx:id="totalhargaLabel" layoutX="542.0" layoutY="293.0" text="Label">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="tipecucianLabel" layoutX="542.0" layoutY="213.0" text="Label">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="beratcucianLabel" layoutX="542.0" layoutY="242.0" text="Label">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Label>
+                  <Text layoutX="199.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Keluhan dan Saran : 081357660849" wrappingWidth="252.73040771484375">
+                     <font>
+                        <Font name="Segoe Script" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="218.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Terimakasih atas laundry Anda" wrappingWidth="215.93035888671875">
+                     <font>
+                        <Font name="Segoe Script" size="12.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="24.0" layoutY="373.0" mnemonicParsing="false" onAction="#clickBack" prefHeight="26.0" prefWidth="43.0" text="Back" />
+                  <Line endX="509.0" endY="7.62939453125E-6" layoutX="121.0" layoutY="164.0" startX="-100.0" />
+                  <Text layoutX="23.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alamat" wrappingWidth="119.1304931640625">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="alamatLabel" layoutX="152.0" layoutY="319.0" text="Label">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
+                     </font>
+                  </Label>
+                  <Text layoutX="515.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rp" wrappingWidth="17.530517578125">
+                     <font>
+                        <Font name="Serif Regular" size="14.0" />
                      </font>
                   </Text>
                </children>
