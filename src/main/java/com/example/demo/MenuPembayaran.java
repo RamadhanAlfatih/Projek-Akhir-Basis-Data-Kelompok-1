@@ -118,6 +118,7 @@ public class MenuPembayaran {
                 sqlStatement.setString(3, nocucianText.getText().trim());
                 sqlStatement.execute();
 
+
                 connectNow.MyAlert("info", "Informasi", "Laundry berhasil dibayar!");
             } catch (Exception e) {
                 e.printStackTrace();
@@ -153,8 +154,8 @@ public class MenuPembayaran {
             try {
                 //get jeniscucian dan tipecucian
                 Statement st = connectDB.createStatement();
-                String sql = "Select JenisCucian, TipeCucian, BeratCucian from Pesanan a, Pembayaran b " +
-                        "where a.NomorCucian = b.NomorCucian and a.NomorCucian = '"+nocucianText.getText()+"'";
+                String sql = "Select TOP 1 JenisCucian, TipeCucian, BeratCucian from Pesanan a, Pembayaran b " +
+                        "where a.NomorCucian = '"+nocucianText.getText()+"'";
                 ResultSet rs = st.executeQuery(sql);
                 String str1 = null;
                 String str2 = null;
